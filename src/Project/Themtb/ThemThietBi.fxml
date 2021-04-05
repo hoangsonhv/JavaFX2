@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.text.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="465.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Project.Themtb.ThemController">
+   <children>
+      <Pane layoutX="13.0" layoutY="13.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="375.0" prefWidth="440.0" style="-fx-background-color: #DDFFFF;">
+         <children>
+            <ListView layoutX="15.0" layoutY="58.0" prefHeight="306.0" prefWidth="407.0" style="-fx-background-color: #DDDDDD; -fx-border-color: black; -fx-border-radius: 5px;" />
+            <Label layoutX="77.0" layoutY="104.0" text="Tên Thiết Bị :" />
+            <TextField fx:id="txttentb" layoutX="171.0" layoutY="99.0" prefHeight="31.0" />
+            <Label layoutX="86.0" layoutY="158.0" text="Số Lượng :" />
+            <TextField fx:id="txtsoluong" layoutX="173.0" layoutY="153.0" prefHeight="31.0" />
+            <Label layoutX="80.0" layoutY="214.0" text="Ngày Nhập :" />
+            <DatePicker fx:id="txtngaynhap" layoutX="173.0" layoutY="209.0" prefHeight="31.0" prefWidth="186.0" />
+            <Text fx:id="txtText" layoutX="147.0" layoutY="257.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="199.6708984375" />
+            <Button layoutX="109.0" layoutY="282.0" mnemonicParsing="false" onAction="#add" prefHeight="40.0" prefWidth="105.0" text="Thêm" />
+            <ListView layoutX="15.0" layoutY="11.0" prefHeight="40.0" prefWidth="407.0" style="-fx-background-color: #DDDDDD; -fx-border-color: black;" />
+            <Text fill="RED" layoutX="141.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Thêm Thiết Bị">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Text>
+            <Button layoutX="21.0" layoutY="15.0" mnemonicParsing="false" onAction="#back" text="&lt;&lt;" />
+            <Button layoutX="226.0" layoutY="282.0" mnemonicParsing="false" onAction="#trove" prefHeight="40.0" prefWidth="105.0" text="Trang Chủ" textFill="RED" />
+
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="592.0" prefWidth="695.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Project.User.UserController">
+   <children>
+      <Pane layoutX="13.0" layoutY="10.0" prefHeight="573.0" prefWidth="670.0" style="-fx-background-color: #DDFFFF;">
+         <children>
+            <ListView layoutX="10.0" layoutY="11.0" prefHeight="65.0" prefWidth="650.0" style="-fx-background-color: #DDDDDD; -fx-border-color: #888888;" />
+            <Button layoutX="25.0" layoutY="28.0" mnemonicParsing="false" onAction="#trove" text="Trang Chủ" textFill="#f50606" />
+            <Text layoutX="236.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Người Dùng">
+               <font>
+                  <Font name="System Bold" size="34.0" />
+               </font>
+            </Text>
+            <TableView fx:id="tbview" layoutX="10.0" layoutY="83.0" prefHeight="251.0" prefWidth="650.0" style="-fx-background-color: #DDDDDD; -fx-border-color: #888888;">
+              <columns>
+                <TableColumn fx:id="idND" minWidth="80.0" text="ID" />
+                <TableColumn fx:id="tenND" minWidth="235.0" prefWidth="235.0" text="Họ Và Tên" />
+                  <TableColumn fx:id="tuoiND" minWidth="80.0" text="Tuổi" />
+                  <TableColumn fx:id="gioiTinhND" minWidth="95.0" prefWidth="95.0" text="Giới Tính" />
+                  <TableColumn fx:id="ghiChu" minWidth="157.0" prefWidth="157.0" text="Ghi Chú" />
+              </columns>
+            </TableView>
+            <ListView layoutX="10.0" layoutY="342.0" prefHeight="223.0" prefWidth="500.0" style="-fx-background-color: #DDDDDD; -fx-border-color: #888888;" />
+            <Label disable="true" layoutX="62.0" layoutY="380.0" prefHeight="21.0" prefWidth="28.0" text="ID :" />
+            <TextField fx:id="txtId" disable="true" layoutX="90.0" layoutY="375.0" prefHeight="38.0" prefWidth="156.0" />
+            <Label layoutX="278.0" layoutY="380.0" text="Họ Tên :" />
+            <TextField fx:id="txtName" layoutX="342.0" layoutY="372.0" prefHeight="38.0" prefWidth="156.0" />
+            <Label layoutX="47.0" layoutY="447.0" prefHeight="21.0" prefWidth="39.0" text="Tuổi :" />
+            <TextField fx:id="txtAge" layoutX="90.0" layoutY="438.0" prefHeight="38.0" prefWidth="156.0" />
+            <Label layoutX="265.0" layoutY="446.0" prefHeight="21.0" prefWidth="69.0" text="Giới Tính :" />
+            <TextField fx:id="txtSex" layoutX="342.0" layoutY="438.0" prefHeight="38.0" prefWidth="156.0" />
+            <Label layoutX="23.0" layoutY="507.0" prefHeight="21.0" prefWidth="62.0" text="Ghi Chú :" />
+            <TextField fx:id="txtNote" layoutX="90.0" layoutY="498.0" prefHeight="38.0" prefWidth="156.0" />
+            <Text fx:id="txtText1" layoutX="321.0" layoutY="502.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="156.0" />
+            <ListView layoutX="518.0" layoutY="342.0" prefHeight="223.0" prefWidth="142.0" style="-fx-background-color: #DDDDDD; -fx-border-color: #888888;" />
+            <Button layoutX="537.0" layoutY="362.0" mnemonicParsing="false" onAction="#editND" prefHeight="31.0" prefWidth="104.0" text="Sửa" />
+            <Button layoutX="537.0" layoutY="412.0" mnemonicParsing="false" onAction="#updateND" prefHeight="31.0" prefWidth="104.0" text="Cập Nhật" />
+            <Button layoutX="537.0" layoutY="464.0" mnemonicParsing="false" onAction="#addND" prefHeight="31.0" prefWidth="104.0" text="Thêm" />
+            <Button layoutX="537.0" layoutY="515.0" mnemonicParsing="false" onAction="#deleteND" prefHeight="31.0" prefWidth="104.0" text="Xóa" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="592.0" prefWidth="695.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Project.Suatb.SuaController">
+   <children>
+      <Pane layoutX="12.0" layoutY="14.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="565.0" prefWidth="670.0" style="-fx-background-color: #DDFFFF; -fx-border-color: #888888; -fx-border-radius: 2px; -fx-border-width: 0.5px;">
+         <children>
+            <ListView layoutX="10.0" layoutY="9.0" prefHeight="66.0" prefWidth="649.0" style="-fx-background-color: #DDDDDD; -fx-border-color: #AAAAAA;" />
+            <Button layoutX="27.0" layoutY="23.0" mnemonicParsing="false" onAction="#trove" prefHeight="40.0" prefWidth="97.0" text="Trang Chủ" textFill="RED" />
+            <Text layoutX="176.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Thông Tin Thiết Bị">
+               <font>
+                  <Font name="System Bold" size="36.0" />
+               </font>
+            </Text>
+            <TableView fx:id="danhsachtb" editable="true" fixedCellSize="0.0" layoutX="10.0" layoutY="75.0" prefHeight="289.0" prefWidth="649.0" style="-fx-background-color: #DDDDDD; -fx-border-color: #888888; -fx-border-radius: 5px;">
+               <columns>
+                  <TableColumn fx:id="idtb" minWidth="80.0" text="ID" />
+                  <TableColumn fx:id="tentb" minWidth="330.0" prefWidth="330.0" text="Tên Thiết Bị" />
+                  <TableColumn fx:id="soluongtb" minWidth="90.0" prefWidth="90.0" text="Số Lượng" />
+                  <TableColumn fx:id="ngaynhap" minWidth="146.0" prefWidth="146.0" text="Ngày Nhập" />
+               </columns>
+            </TableView>
+            <ListView layoutX="490.0" layoutY="375.0" prefHeight="178.0" prefWidth="169.0" style="-fx-background-color: #DDDDDD; -fx-border-color: #AAAAAA;" />
+            <Button layoutX="506.0" layoutY="384.0" mnemonicParsing="false" onAction="#edit" prefHeight="33.0" prefWidth="137.0" text="Sửa" />
+            <Button layoutX="506.0" layoutY="427.0" mnemonicParsing="false" onAction="#update" prefHeight="33.0" prefWidth="137.0" text="Cập Nhật" />
+            <Button layoutX="506.0" layoutY="469.0" mnemonicParsing="false" onAction="#delete" prefHeight="33.0" prefWidth="137.0" text="Xóa" />
+            <Button layoutX="506.0" layoutY="511.0" mnemonicParsing="false" onAction="#back1" prefHeight="33.0" prefWidth="137.0" text="Trở Về" />
+            <ListView layoutX="10.0" layoutY="375.0" prefHeight="178.0" prefWidth="476.0" style="-fx-background-color: #DDDDDD; -fx-border-color: #AAAAAA;" />
+            <Label layoutX="59.0" layoutY="420.0" text="ID :" />
+            <TextField fx:id="txtid" disable="true" layoutX="90.0" layoutY="415.0" prefHeight="31.0" prefWidth="137.0" />
+            <Label layoutX="27.0" layoutY="472.0" text="Tên TBị :" />
+            <TextField fx:id="txttentb" layoutX="90.0" layoutY="467.0" prefHeight="31.0" prefWidth="137.0" />
+            <Label layoutX="253.0" layoutY="420.0" text="Số Lượng :" />
+            <TextField fx:id="txtsoluong" layoutX="331.0" layoutY="415.0" prefHeight="31.0" prefWidth="137.0" />
+            <Label layoutX="241.0" layoutY="472.0" text="Ngày Nhập :" />
+            <DatePicker fx:id="txtngaynhap" layoutX="332.0" layoutY="467.0" prefHeight="31.0" prefWidth="137.0" />
+            <Text fx:id="txtText" layoutX="167.0" layoutY="517.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="242.6708984375" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
