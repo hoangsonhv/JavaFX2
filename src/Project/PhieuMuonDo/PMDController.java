@@ -25,6 +25,17 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class PMDController implements Initializable {
+    public TableView<ThietBi>danhsachtb;
+    public TableColumn<ThietBi,String >idtb;
+    public TableColumn<ThietBi,String>tentb;
+    public TableColumn<ThietBi,Integer>soluongtb;
+    public TableColumn<ThietBi,String>ngaynhap;
+    public TableView<NguoiDung> tbview;
+    public TableColumn<NguoiDung,Integer> idND;
+    public TableColumn<NguoiDung,String> tenND;
+    public TableColumn<NguoiDung,Integer> tuoiND;
+    public TableColumn<NguoiDung,String> gioiTinhND;
+    public TableColumn<NguoiDung,String> ghiChu;
     public TextField idP;
     public TextField tenP;
     public TextField slP;
@@ -46,6 +57,27 @@ public class PMDController implements Initializable {
     ObservableList<Phieu> dsp = FXCollections.observableArrayList();
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        idtb.setCellValueFactory(new PropertyValueFactory<ThietBi,String >("id"));
+        tentb.setCellValueFactory(new PropertyValueFactory<ThietBi,String>("tenThietBi"));
+        soluongtb.setCellValueFactory(new PropertyValueFactory<ThietBi,Integer>("soLuong"));
+        ngaynhap.setCellValueFactory(new PropertyValueFactory<ThietBi,String >("ngayNhap"));
+        ObservableList<ThietBi> dstb = FXCollections.observableArrayList();
+        ModelThietBi modelThietBi = new ModelThietBi();
+        dstb.addAll(modelThietBi.getList());
+        danhsachtb.setItems(dstb);
+        danhsachtb.refresh();
+
+        ObservableList<NguoiDung> dsnd = FXCollections.observableArrayList();
+        idND.setCellValueFactory(new PropertyValueFactory<NguoiDung,Integer>("id"));
+        tenND.setCellValueFactory(new PropertyValueFactory<NguoiDung,String>("ten"));
+        tuoiND.setCellValueFactory(new PropertyValueFactory<NguoiDung,Integer>("tuoi"));
+        gioiTinhND.setCellValueFactory(new PropertyValueFactory<NguoiDung,String>("gioiTinh"));
+        ghiChu.setCellValueFactory(new PropertyValueFactory<NguoiDung,String>("ghiChu"));
+        ModelNguoiDung modelNguoiDung = new ModelNguoiDung();
+        dsnd.addAll(modelNguoiDung.listND());
+        tbview.setItems(dsnd);
+        tbview.refresh();
+
         tbID.setCellValueFactory(new PropertyValueFactory<Phieu,Integer>("id"));
         tbName.setCellValueFactory(new PropertyValueFactory<Phieu,String>("ten"));
         tbSL.setCellValueFactory(new PropertyValueFactory<Phieu,String>("soLuong"));
@@ -125,7 +157,7 @@ public class PMDController implements Initializable {
                 dsPhieu.refresh();
             }
             Parent root = FXMLLoader.load(getClass().getResource("../PhieuMuonDo/PhieuMuon.fxml"));
-            Main.mainStage.setScene(new Scene(root, 695, 592));
+            Main.mainStage.setScene(new Scene(root, 1100, 900));
 
         }catch (Exception e) {
             txtText2.setText("Vui lòng chọn danh mục xóa.!");
@@ -147,7 +179,7 @@ public class PMDController implements Initializable {
                 modelPhieu.createP(phieu);
                 txtText2.setText("Thêm thành công.!");
                 Parent root = FXMLLoader.load(getClass().getResource("../PhieuMuonDo/PhieuMuon.fxml"));
-                Main.mainStage.setScene(new Scene(root,695,592));
+                Main.mainStage.setScene(new Scene(root,1100,900));
             }else{
                 txtText2.setText("Vui lòng nhập đầy đủ thông tin!");
                 txtText2.setDisable(false);
@@ -159,7 +191,7 @@ public class PMDController implements Initializable {
     public void back() throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("../Danhsachtb/DanhSach.fxml"));
         Main.mainStage.setTitle("Trang Chủ");
-        Main.mainStage.setScene(new Scene(root, 695, 592));
+        Main.mainStage.setScene(new Scene(root, 1100, 900));
     }
 
     public void trove() throws Exception {

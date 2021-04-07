@@ -5,7 +5,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 
-
 public class TrangChuController {
     public void danhsach() throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("../Danhsachtb/DanhSach.fxml"));
@@ -22,6 +21,6 @@ public class TrangChuController {
     public void phieu() throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("../PhieuMuonDo/PhieuMuon.fxml"));
         Main.mainStage.setTitle("Phiếu Mượn Đồ Dùng");
-        Main.mainStage.setScene(new Scene(root,695,592));
+        Main.mainStage.setScene(new Scene(root,1100,900));
     }
 }

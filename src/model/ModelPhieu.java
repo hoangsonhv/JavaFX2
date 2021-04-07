@@ -15,12 +15,12 @@ public class ModelPhieu implements DataPhieu<Phieu> {
             ResultSet resultSet = st.executeQuery(sql);
             while (resultSet.next()) {
                 arrayList.add(new Phieu(resultSet.getInt("id"),
-                        resultSet.getString("tenthietbi"),
-                        resultSet.getString("soluong"),
-                        resultSet.getString("ngay_muon"),
-                        resultSet.getString("ngay_tra"),
-                        resultSet.getInt("thietbi_id"),
-                        resultSet.getInt("user_id")));
+                    resultSet.getString("tenthietbi"),
+                    resultSet.getString("soluong"),
+                    resultSet.getString("ngay_muon"),
+                    resultSet.getString("ngay_tra"),
+                    resultSet.getInt("thietbi_id"),
+                    resultSet.getInt("user_id")));
             }
         }catch (Exception e){
         }
@@ -30,11 +30,6 @@ public class ModelPhieu implements DataPhieu<Phieu> {
     @Override
     public boolean createP(Phieu phieu) {
         try {
-            Statement stt = Connected.getInstance().getStatement();
-            String txt = "insert into phieu(id,tenthietbi,soluong,ngay_muon,ngay_tra,thietbi_id,user_id) values(" +
-                    ""+phieu.getId()+",'"+phieu.getTen()+"',"+phieu.getSoLuong()+",'"+phieu.getNgayMuon()+"','"+phieu.getNgayTra()+"','"+phieu.getTb_id()+"','"+phieu.getUs_id()+"')";
-            stt.execute(txt);
-
             Statement stt1 = Connected.getInstance().getStatement();
             String so_luong_hien_tai = "select soluong from thietbi where id="+phieu.getTb_id();
             ResultSet rs = stt1.executeQuery(so_luong_hien_tai);
@@ -42,11 +37,20 @@ public class ModelPhieu implements DataPhieu<Phieu> {
             while (rs.next()){
                 x = rs.getInt("soluong");
             }
-            Integer so_luong_tb_con = x - Integer.parseInt(phieu.getSoLuong());
-            Statement stt3 = Connected.getInstance().getStatement();
-            String txt3 = "UPDATE thietbi SET soluong='" + so_luong_tb_con + "' where id=" + phieu.getTb_id();
-            stt3.execute(txt3);
-            return true;
+            if (x >= Integer.parseInt(phieu.getSoLuong())){
+                Statement stt = Connected.getInstance().getStatement();
+                String txt = "insert into phieu(id,tenthietbi,soluong,ngay_muon,ngay_tra,thietbi_id,user_id) values(" +
+                        ""+phieu.getId()+",'"+phieu.getTen()+"',"+phieu.getSoLuong()+",'"+phieu.getNgayMuon()+"','"+phieu.getNgayTra()+"','"+phieu.getTb_id()+"','"+phieu.getUs_id()+"')";
+                stt.execute(txt);
+
+                Integer so_luong_tb_con = x - Integer.parseInt(phieu.getSoLuong());
+                Statement stt3 = Connected.getInstance().getStatement();
+                String txt3 = "UPDATE thietbi SET soluong='" + so_luong_tb_con + "' where id=" + phieu.getTb_id();
+                stt3.execute(txt3);
+                return true;
+            }else {
+                return false;
+            }
         }catch (Exception e){
             System.out.println(e.getMessage());
         }
@@ -70,8 +74,17 @@ public class ModelPhieu implements DataPhieu<Phieu> {
             Statement stt1 = Connected.getInstance().getStatement();
             String sql = "DELETE FROM phieu WHERE id="+phieu.getId();
             stt1.execute(sql);
-        }catch (Exception e){
-        }
+            String so_luong_dang_co = "SELECT soluong FROM thietbi where id="+phieu.getTb_id();
+            ResultSet rs = stt1.executeQuery(so_luong_dang_co);
+            Integer s = 0;
+            while (rs.next()){
+                s = rs.getInt("soluong");
+            }
+            Integer cong_so_luong = s + Integer.parseInt(phieu.getSoLuong());
+            Statement stt2 = Connected.getInstance().getStatement();
+            String txt = "UPDATE thietbi SET soluong='" + cong_so_luong + "' where id=" + phieu.getTb_id();
+            stt2.execute(txt);
+        }catch (Exception e){}
         return false;
     }
 }
