@@ -26,9 +26,9 @@
                     </columns>
                 </TableView>
                 <ListView layoutX="11.0" layoutY="472.0" prefHeight="83.0" prefWidth="650.0" style="-fx-background-color: #DDDDDD; -fx-border-color: #888888;" />
-                <Button layoutX="91.0" layoutY="494.0" mnemonicParsing="false" onAction="#them" prefHeight="40.0" prefWidth="128.0" text="Thêm" />
-                <Button layoutX="271.0" layoutY="494.0" mnemonicParsing="false" onAction="#sua" prefHeight="40.0" prefWidth="128.0" text="Thao Tác" />
-                <Button layoutX="458.0" layoutY="494.0" mnemonicParsing="false" onAction="#trove" prefHeight="40.0" prefWidth="128.0" text="Trang Chủ" textFill="RED" />
+                <Button layoutX="126.0" layoutY="494.0" mnemonicParsing="false" onAction="#trove" prefHeight="40.0" prefWidth="112.0" text="Trang Chủ" textFill="RED" />
+                <Button layoutX="270.0" layoutY="494.0" mnemonicParsing="false" onAction="#them" prefHeight="40.0" prefWidth="112.0" text="Thêm" />
+            <Button layoutX="416.0" layoutY="494.0" mnemonicParsing="false" onAction="#sua" prefHeight="40.0" prefWidth="128.0" text="Khác" />
             </children>
         </Pane>
     </children>

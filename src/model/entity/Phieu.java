@@ -3,13 +3,13 @@ package model.entity;
 public class Phieu {
     Integer id;
     String ten;
-    Integer soLuong;
+    String soLuong;
     String ngayMuon;
     String ngayTra;
     Integer tb_id;
     Integer us_id;
 
-    public Phieu(Integer id, String ten, Integer soLuong, String ngayMuon, String ngayTra, Integer tb_id, Integer us_id) {
+    public Phieu(Integer id, String ten, String soLuong, String ngayMuon, String ngayTra, Integer tb_id, Integer us_id) {
         this.id = id;
         this.ten = ten;
         this.soLuong = soLuong;
@@ -35,11 +35,11 @@ public class Phieu {
         this.ten = ten;
     }
 
-    public Integer getSoLuong() {
+    public String getSoLuong() {
         return soLuong;
     }
 
-    public void setSoLuong(Integer soLuong) {
+    public void setSoLuong(String soLuong) {
         this.soLuong = soLuong;
     }
 

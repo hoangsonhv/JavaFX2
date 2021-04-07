@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public interface DataPhieu<P> {
     ArrayList<P> listPM();
-    boolean create(P p);
-    boolean update(P p);
-    boolean delete(P p);
+    boolean createP(P p);
+    boolean updateP(P p);
+    boolean deleteP(P p);
 }

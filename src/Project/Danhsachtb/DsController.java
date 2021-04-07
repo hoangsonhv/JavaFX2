@@ -9,7 +9,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import model.ModelPhieu;
 import model.ModelThietBi;
+import model.entity.Phieu;
 import model.entity.ThietBi;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -45,6 +47,12 @@ public class DsController implements Initializable {
         Parent root = FXMLLoader.load(getClass().getResource("../Themtb/ThemThietBi.fxml"));
         Main.mainStage.setTitle("Thêm Thiết Bị");
         Main.mainStage.setScene(new Scene(root, 465, 400));
+    }
+
+    public void muon() throws Exception{
+        Parent root = FXMLLoader.load(getClass().getResource("../PhieuMuonDo/PhieuMuon.fxml"));
+        Main.mainStage.setTitle("Thêm Thiết Bị");
+        Main.mainStage.setScene(new Scene(root, 695, 592));
     }
 
     public void trove() throws Exception {

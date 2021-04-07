@@ -57,7 +57,6 @@ public class SuaController implements Initializable {
         }catch (Exception e){
             txtText.setText("Vui lòng chọn danh mục sửa..!");
             txtText.setDisable(false);
-            System.out.println(e.getMessage());
         }
     }
 

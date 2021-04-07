@@ -18,8 +18,6 @@ public class ModelThietBi implements DataAccsessObject<ThietBi>{
             while (resultSet.next()){
                 arrayList.add(new ThietBi(resultSet.getString("id"),resultSet.getString("tenthietbi"),resultSet.getString("soluong"),resultSet.getString("ngaynhap")));
             }
-            String sl = "select soluong from thietbi";
-            String slp = "select soluong from phieu";
         }catch (Exception e){
         }
         return arrayList;

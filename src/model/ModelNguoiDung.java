@@ -23,21 +23,6 @@ public class ModelNguoiDung implements  DataNguoiDung<NguoiDung>{
         }
         return arrayList;
     }
-    public ArrayList<String> listND2() {
-        ArrayList<String> arrayList = new ArrayList<>();
-        try {
-            Statement st = Connected.getInstance().getStatement();
-            String sql = "SELECT * FROM user";
-            ResultSet rs = st.executeQuery(sql);
-            while (rs.next()){
-//                arrayList.add(new NguoiDung(rs.getInt("id"),rs.getString("ten"),rs.getInt("tuoi"),rs.getString("gioi_tinh"),rs.getString("ghi_chu")));
-                arrayList.add(rs.getInt("id"), rs.getString("ten"));
-            }
-
-        }catch (Exception e){
-        }
-        return arrayList;
-    }
 
     @Override
     public boolean create(NguoiDung nguoiDung) {

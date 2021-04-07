@@ -12,8 +12,11 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Text;
 import model.ModelNguoiDung;
 import model.ModelPhieu;
+import model.ModelThietBi;
 import model.entity.Phieu;
 import model.entity.NguoiDung;
+import model.entity.ThietBi;
+
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -34,23 +37,21 @@ public class PMDController implements Initializable {
     public TableView<Phieu> dsPhieu;
     public TableColumn<Phieu,Integer> tbID;
     public TableColumn<Phieu,String> tbName;
-    public TableColumn<Phieu,Integer> tbSL;
+    public TableColumn<Phieu,String> tbSL;
     public TableColumn<Phieu,String> tbNgayMuon;
     public TableColumn<Phieu,String> tbNgayTra;
     public TableColumn<Phieu,Integer> tbTB_ID;
     public TableColumn<Phieu,Integer> tbUS_ID;
 
     ObservableList<Phieu> dsp = FXCollections.observableArrayList();
-    ObservableList<NguoiDung> dsnd = FXCollections.observableArrayList();
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         tbID.setCellValueFactory(new PropertyValueFactory<Phieu,Integer>("id"));
         tbName.setCellValueFactory(new PropertyValueFactory<Phieu,String>("ten"));
-        tbSL.setCellValueFactory(new PropertyValueFactory<Phieu,Integer>("soLuong"));
+        tbSL.setCellValueFactory(new PropertyValueFactory<Phieu,String>("soLuong"));
         tbNgayMuon.setCellValueFactory(new PropertyValueFactory<Phieu,String>("ngayMuon"));
         tbNgayTra.setCellValueFactory(new PropertyValueFactory<Phieu,String>("ngayTra"));
         tbTB_ID.setCellValueFactory(new PropertyValueFactory<Phieu,Integer>("tb_id"));
-
         tbUS_ID.setCellValueFactory(new PropertyValueFactory<Phieu,Integer>("us_id"));
 
         ModelPhieu modelPhieu = new ModelPhieu();
@@ -79,7 +80,7 @@ public class PMDController implements Initializable {
     public void updateP(){
         try {
             String ten = tenP.getText();
-            Integer sl = Integer.parseInt(slP.getText());
+            String sl = slP.getText();
             LocalDate  nm = nmP.getValue();
             LocalDate  nt = ntP.getValue();
             Integer tb_id = Integer.parseInt(tbidP.getText());
@@ -101,7 +102,7 @@ public class PMDController implements Initializable {
                     dsPhieu.refresh();
                     txtText2.setText("Sửa thành công.!");
                     ModelPhieu modelPhieu = new ModelPhieu();
-                    modelPhieu.update(editP);
+                    modelPhieu.updateP(editP);
                     dsPhieu.setItems(dsp);
                 }
             }else {
@@ -114,16 +115,16 @@ public class PMDController implements Initializable {
         }
     }
 
-    public void deleteP(){
+    public void deletePhieu(){
         try {
             Phieu ph = dsPhieu.getSelectionModel().getSelectedItem();
             ModelPhieu modelPhieu = new ModelPhieu();
-            if (modelPhieu.delete(ph)){
+            if (modelPhieu.deleteP(ph)){
                 dsp.addAll(modelPhieu.listPM());
                 dsPhieu.setItems(dsp);
                 dsPhieu.refresh();
             }
-            Parent root = FXMLLoader.load(getClass().getResource("../PhieuMuonDo/PhieuMuonDo.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("../PhieuMuonDo/PhieuMuon.fxml"));
             Main.mainStage.setScene(new Scene(root, 695, 592));
 
         }catch (Exception e) {
@@ -132,19 +133,20 @@ public class PMDController implements Initializable {
         }
     }
 
-    public void addP(){
+    public void addPhieu(){
         try {
             String ten = tenP.getText();
-            Integer sluong = Integer.parseInt(slP.getText());
+            String sluong = slP.getText();
             LocalDate nmuon = nmP.getValue();
             LocalDate ntra = ntP.getValue();
             Integer tbi_id = Integer.parseInt(tbidP.getText());
             Integer user_id = Integer.parseInt(usidP.getText());
             ModelPhieu modelPhieu = new ModelPhieu();
             Phieu phieu = new Phieu(null,ten,sluong,nmuon.toString(),ntra.toString(),tbi_id,user_id);
-            if (modelPhieu.create(phieu) && !ten.isEmpty()){
+            if (!ten.isEmpty() || !sluong.isEmpty() && nmuon!=null && ntra!=null){
+                modelPhieu.createP(phieu);
                 txtText2.setText("Thêm thành công.!");
-                Parent root = FXMLLoader.load(getClass().getResource("../PhieuMuonDo/PhieuMuonDo.fxml"));
+                Parent root = FXMLLoader.load(getClass().getResource("../PhieuMuonDo/PhieuMuon.fxml"));
                 Main.mainStage.setScene(new Scene(root,695,592));
             }else{
                 txtText2.setText("Vui lòng nhập đầy đủ thông tin!");
@@ -152,6 +154,12 @@ public class PMDController implements Initializable {
             }
         } catch (Exception e) {
         }
+    }
+
+    public void back() throws Exception {
+        Parent root = FXMLLoader.load(getClass().getResource("../Danhsachtb/DanhSach.fxml"));
+        Main.mainStage.setTitle("Trang Chủ");
+        Main.mainStage.setScene(new Scene(root, 695, 592));
     }
 
     public void trove() throws Exception {
