@@ -20,10 +20,10 @@
             </Text>
             <TableView fx:id="danhsachtb" editable="true" fixedCellSize="0.0" layoutX="10.0" layoutY="75.0" prefHeight="289.0" prefWidth="649.0" style="-fx-background-color: #DDDDDD; -fx-border-color: #888888; -fx-border-radius: 5px;">
                <columns>
-                  <TableColumn fx:id="idtb" minWidth="80.0" text="ID" />
-                  <TableColumn fx:id="tentb" minWidth="330.0" prefWidth="330.0" text="Tên Thiết Bị" />
-                  <TableColumn fx:id="soluongtb" minWidth="90.0" prefWidth="90.0" text="Số Lượng" />
-                  <TableColumn fx:id="ngaynhap" minWidth="146.0" prefWidth="146.0" text="Ngày Nhập" />
+                  <TableColumn fx:id="idtb" minWidth="80.0" style="-fx-alignment: center;" text="ID" />
+                  <TableColumn fx:id="tentb" minWidth="330.0" prefWidth="330.0" style="-fx-alignment: center;" text="Tên Thiết Bị" />
+                  <TableColumn fx:id="soluongtb" minWidth="90.0" prefWidth="90.0" style="-fx-alignment: center;" text="Số Lượng" />
+                  <TableColumn fx:id="ngaynhap" minWidth="146.0" prefWidth="146.0" style="-fx-alignment: center;" text="Ngày Nhập" />
                </columns>
             </TableView>
             <ListView layoutX="490.0" layoutY="375.0" prefHeight="178.0" prefWidth="169.0" style="-fx-background-color: #DDDDDD; -fx-border-color: #AAAAAA;" />

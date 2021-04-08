@@ -175,7 +175,7 @@ public class PMDController implements Initializable {
             Integer user_id = Integer.parseInt(usidP.getText());
             ModelPhieu modelPhieu = new ModelPhieu();
             Phieu phieu = new Phieu(null,ten,sluong,nmuon.toString(),ntra.toString(),tbi_id,user_id);
-            if (!ten.isEmpty() || !sluong.isEmpty() && nmuon!=null && ntra!=null){
+            if ( !sluong.isEmpty() && nmuon!=null && ntra!=null){
                 modelPhieu.createP(phieu);
                 txtText2.setText("Thêm thành công.!");
                 Parent root = FXMLLoader.load(getClass().getResource("../PhieuMuonDo/PhieuMuon.fxml"));

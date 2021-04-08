@@ -21,11 +21,11 @@
             </Text>
             <TableView fx:id="tbview" layoutX="10.0" layoutY="83.0" prefHeight="251.0" prefWidth="650.0" style="-fx-background-color: #DDDDDD; -fx-border-color: #888888;">
               <columns>
-                <TableColumn fx:id="idND" minWidth="80.0" text="ID" />
-                <TableColumn fx:id="tenND" minWidth="235.0" prefWidth="235.0" text="Họ Và Tên" />
-                  <TableColumn fx:id="tuoiND" minWidth="80.0" text="Tuổi" />
-                  <TableColumn fx:id="gioiTinhND" minWidth="95.0" prefWidth="95.0" text="Giới Tính" />
-                  <TableColumn fx:id="ghiChu" minWidth="157.0" prefWidth="157.0" text="Ghi Chú" />
+                <TableColumn fx:id="idND" minWidth="80.0" style="-fx-alignment: center;" text="ID" />
+                <TableColumn fx:id="tenND" minWidth="235.0" prefWidth="235.0" style="-fx-alignment: center;" text="Họ Và Tên" />
+                  <TableColumn fx:id="tuoiND" minWidth="80.0" style="-fx-alignment: center;" text="Tuổi" />
+                  <TableColumn fx:id="gioiTinhND" minWidth="95.0" prefWidth="95.0" style="-fx-alignment: center;" text="Giới Tính" />
+                  <TableColumn fx:id="ghiChu" minWidth="157.0" prefWidth="157.0" style="-fx-alignment: center;" text="Ghi Chú" />
               </columns>
             </TableView>
             <ListView layoutX="10.0" layoutY="342.0" prefHeight="223.0" prefWidth="500.0" style="-fx-background-color: #DDDDDD; -fx-border-color: #888888;" />
